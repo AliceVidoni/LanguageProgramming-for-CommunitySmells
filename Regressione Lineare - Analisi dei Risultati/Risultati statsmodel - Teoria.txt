@@ -1,0 +1,48 @@
+Leggenda: 
+x1 - Language
+x2 - Contributors
+x3 - CommitCount
+x4 - DaysActive
+x5 - BusFactorNumber
+
+
+Bias = La differenza tra il valore target e la previsione del modello
+
+Dep. Variabile = variabile dipendente nei dati
+
+Model/Method = OLS (Ordinary Least Square) Il modello cerca di trovare un'espressione lineare per il set di dati che minimizzi la somma dei quadrati residui.
+
+DF Residual/DF Model = Abbiamo un totale di 200 osservazioni e 6 funzioni. Su 6 funzioni, 5 sono indipendenti, quindi DF Model=5. Il DF Residual è calcolato dall'osservazione totale (DF Model-1), quindi DF Resisuals=(200-5-1)=194
+
+Covariance Type = quasi sempre "nonrobust", il che significa che non c'è stata eliminazione di dati per calcolare la covarianza tra le caratteristiche. La covarianza mostra come due variabili si muovono l'una rispetto all'altra. Se >0, le variabili si muovono nella stessa direzione, se <0 allora funzionano in direzione opposta. Importante notare che la covarianza è diversa dalla correlazione, infatti essa non fornisce la forza della relazione ma solo la direzione del movimento.
+
+R-squared = è il coefficiente di determinazione che indica la percentuale della variabilità dei dati spiegata dalle variabili indipendenti selezionate.
+
+Adj. R-squared = Aggiungendo sempre più variabili indipendenti al nostro modello, i valori di R-quadro aumentano, ma in realtà queste variabili non contribuiscono necessariamente a spiegare la variabile dipendente. Pertanto, l'aggiunta di ogni variabile non necessaria richiede una sorta di penalizzazione. I valori originali di R-quadro vengono aggiustati quando vengono incorporate più variabili. In sostanza, durante l'esecuzione della regressione lineare multipla dovremmo sempre cercare il valore R-quadro corretto. Per una singola variabile indipendente, sia il valore R-quadro che il valore R-quadro corretto sono uguali.
+
+coef / std err = La colonna coef rappresenta i coefficienti di ciascuna variabile indipendente insieme al valore dell'Iterceptor. Std err è la deviazione standard del coefficiente della variabile corrispondente su tutti i punti dati.
+
+t / P>|t| = La colonna t fornisce i valori t corrispondenti a ciascuna variabile indipendente. Le statistiche T sono utilizzate per calcolare i valori p. In genere, quando il valore p è inferiore a 0,05, indica una forte evidenza contro l'ipotesi nulla, che afferma che la variabile indipendente corrispondente non ha alcun effetto sulla variabile dipendente. Quindi, per esempio, un valore 0.249 -> la variabile dipendente non è influenzata dalla variabile indipendente, un valore 0.00 -> la variabile dipendente è influenzata dalla variabile indipendente.
+
+F-statistics = Il test F fornisce un modo per verificare tutte le variabili indipendenti insieme se qualcuna di esse è correlata alla variabile dipendente. Se la Prob(F-statistic) è maggiore di 0,05, non c'è evidenza di una relazione tra una qualsiasi variabile indipendente e la variabile dipendente. Se è inferiore a 0,05, possiamo affermare che c'è almeno una variabile che è significativamente correlata all'output. Tuttavia, in alcuni casi il prob(F-statistic) può essere maggiore di 0,05 ma una delle variabili indipendenti mostra una forte correlazione. Ciò è dovuto al fatto che ogni t-test viene effettuato con una serie diversa di dati, mentre il test F verifica l'effetto combinato di tutte le variabili.
+
+Log-Likelihood = è una misura dell'adattamento del modello ai dati forniti. È utile quando si confrontano due o più modelli. Più alto è il valore di log-likelihood, più il modello si adatta ai dati. Può variare da infinito negativo a infinito positivo. Ciò va di pari passo con i valori di R-quadro visti sopra.
+
+AIC / BIC = anche questi sono criteri di robustezza del modello. L'obiettivo è minimizzare questi valori per ottenere un modello maggiore.
+
+Omnibus / Prob(Omnibus) = Il test Omnibus verifica la normalità dei residui una volta implementato il modello. Se il valore è 0, significa che i residui sono perfettamente normali. Il prob(Omnibus) indica la probabilità che i residui siano distribuiti normalmente.
+
+Skew / Kurtosis = I valori di skew indicano la skewness della distribuzione dei residui. Le variabili con distribuzione normale hanno valori di skew pari a 0. La Kurtosis è una misura della distribuzione a coda leggera o a coda pesante rispetto alla distribuzione normale. Una Kurtosis elevata indica che la distribuzione è troppo stretta, mentre una curtosi bassa indica che la distribuzione è troppo piatta. Un valore di curtosi compreso tra -2 e +2 è buono per dimostrare la normalità.
+
+Durbin-Watson = La statistica di Durbin-Watson fornisce una misura dell'autocorrelazione nei residui. Se i valori residui sono autocorrelati, il modello diventa distorto e non è previsto. Ciò significa semplicemente che un valore non dovrebbe dipendere da nessuno dei valori precedenti. Un valore ideale per questo test varia da 0 a 4.
+
+Jarque-Bera (JB) / Prob(JB) = è simile al test Omni che misura la normalità dei residui.
+
+Condition Number = Un numero elevato di condizioni indica la presenza di possibili multicollinearità nel set di dati. Se si utilizza una sola variabile come predittore, questo valore è basso e può essere ignorato. Si può procedere come per la regressione stepwise e vedere se c'è una multicollinearità aggiunta quando si inseriscono altre variabili.
+
+
+
+
+
+
+ 
